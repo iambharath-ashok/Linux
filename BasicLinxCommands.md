@@ -84,3 +84,6 @@
 	-	In Linux packages are installed in the form of packages
 	-	Installation of packages requires sudo permissions
 	-	Command used to install and update packages
+	
+	
+		
