@@ -348,3 +348,36 @@
 
 
 		
+##	ftp 
+
+-	ftp domain.com
+-	ftp 192.168.0.1
+-	ftp user@ftpdomain.com
+-	ftp -nv IPADDRESS or hostname
+
+	-	Login with User and Password
+		
+		user
+		password
+		
+	-	Working with Directories
+		
+		ls
+		cd directory
+		
+		
+-	 Downloading files with FTP
+			
+		lcd /home/user/yourdirectoryname
+		get file
+		mget *.xls
+		put file
+		
+		
+		
+##	How to find IP Address from Hostname
+
+-	ping hostname
+-	nslookup hostname
+-	grep hostname /etc/hosts
+-	ifconfig -a
