@@ -346,5 +346,189 @@
 	
 		tar -rvf tecmint-14-09-12.tar xyz.txt
 
-
 		
+		
+		
+##	cal
+
+-	The “cal” (Calendar), it is used to displays calendar of the present month 
+- 	any other month of any year that is advancing or passed		
+
+	-	cal 07 2145
+	-	cal 
+	-	cal 02 1990
+
+	
+##	date
+
+-	displays the date and time of the machine
+
+	date 
+	
+##	alias and unalias
+
+-	alias and unalias will be used to create aliases and remove the aliases 
+
+##	ifconfig
+
+-	ifconfig is used to configure the kernel-resident network interfaces(network interfaces)
+-	It is used at boot time to set up interfaces as necessary
+
+-	ifconfig
+-	ifconfig -a : viewing all the n/w interfaces
+-	ifconfig eth0 : View Network Settings of Specific Interface
+-	ifconfig eth0 up : How to Enable an Network Interface
+-	ifconfig eth0 down  : How to Disable an Network Interface
+-	ifconfig eth0 172.16.25.125 :  How to Assign a IP Address to Network Interface
+-	ifconfig eth0 netmask 255.255.255.224 : How to Assign a Netmask to Network Interface
+-	ifconfig eth0 broadcast 172.16.25.63 :  How to Assign a Broadcast to Network Interface 
+-	ifconfig eth0 172.16.25.125 netmask 255.255.255.224 broadcast 172.16.25.63 : How to Assign a IP, Netmask and Broadcast to Network Interface
+
+
+
+##	netstat
+
+-	netstat command displays various network related information 
+-	such as network connections, routing tables, interface statistics, masquerade connections, multicast memberships etc
+-	netstat -a
+-	netstat -at
+
+
+##	nslookup
+
+-	A network utility program used to obtain information about Internet servers.
+- 	As its name suggests, the utility finds name server information for domains by querying DNS		
+-	nslookup tecmint.com 
+-	nslookup -query=mx tecmint.com : Query Mail Exchanger Record
+-	nslookup -type=ns tecmint.com : Query Name Server
+-	nslookup -type=any tecmint.com : Query DNS Record
+
+
+##	uptime
+
+-	Give the details of the server status and its users 
+-	Number of hours of that server is up
+
+## w 
+
+-	Combination of who and uptime
+-	provides details about the users logged in and commands that are executing 
+
+##	‘su’ Vs ‘sudo’
+
+-	‘su‘ forces you to share your root password to other users 
+-	Whereas ‘sudo‘ makes it possible to execute system commands without root password
+-	‘sudo‘ lets you use your own password to execute system commands 
+	-	i.e., delegates system responsibility without root password
+	
+-	What is ‘sudo’?
+
+	-	‘sudo‘ is a root binary setuid, which executes root commands on behalf of authorized users 
+	-	And the users need to enter their own password to execute system command followed by ‘sudo‘
+	
+
+
+##	Kill 
+
+-	Linux Operating System comes with Kill command to terminate a process
+-	The command makes it possible to continue running the server without the need of reboot after a major change/update	
+-	pkill command can be used to terminate the process by Process name
+-	kill [signal or option] PID(s)
+-	ps -A
+-	pidof mysqld
+-	ps aux | grep mysqld
+		
+	-	A user can kill all his process
+	-	A user can not kill another user’s process
+	-	A user can not kill processes System is using
+	-	A root user can kill System-level-process and the process of any user
+-	pgrep mysq
+-	kill -9 3139
+-	kill -SIGTERM 3139
+
+	-	‘kill -9 PID‘ is similar to ‘kill -SIGKILL PID‘ and vice-versa
+	
+-	pkill mysqld
+-	kill PID1 PID2 PID3
+-	kill -9 PID1 PID2 PID3
+-	kill -SIGKILL PID1 PID2 PID3
+-	killall mysqld
+
+-	we can always verify the status of the process if it is running or not, using any of the below command
+
+	pgrep mysqld
+	service status mysqld
+	ps -aux | grep mysqld
+	
+
+## Package Managers
+
+###	YUM 
+
+-	YUM (Yellowdog Updater Modified) is an open source package management tool for RPM (RedHat Package Manager) based Linux systems
+-	It allows users and system administrator to easily install, update, remove or search software packages on a systems
+
+-	yum install firefox : Install a Package with YUM
+-	yum -y install firefox : Install without promt
+-	yum remove firefox : Removing a Package with YUM
+-	yum -y remove firefox
+-	yum update mysql
+-	yum list openssh
+-	yum search vsftpd
+-	yum info firefox
+-	yum list | less
+-	yum list installed | less
+-	yum update
+-	yum check-update
+
+
+	
+##	apt package management tool
+
+-	The apt-get utility is a powerful and free package management command line program
+-	Ubuntu’s APT (Advanced Packaging Tool)
+-	library to perform installation of new software packages, removing existing software packages, 
+	-	upgrading of existing software packages and even used to upgrading the entire operating system
+
+-	sudo apt-get update : Update System Packages
+-	sudo apt-get install netcat
+-	sudo apt-get dist-upgrade
+-	sudo apt-get upgrade
+-	sudo apt-get install nethogs goaccess : multiple packages
+-	sudo apt-get install '*name*' Install Several Packages using Wildcard
+-	sudo apt-get install packageName --no-upgrade : ‘–no-upgrade‘ command will prevent already installed packages from upgrading
+-	sudo apt-get install vsftpd=2.3.5-3ubuntu1 : installing specific version
+-	sudo apt-get remove vsftpd
+-	sudo apt-get purge vsftpd : remove completely
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
