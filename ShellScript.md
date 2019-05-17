@@ -86,7 +86,11 @@
 
 
 
-
+https://www.learnshell.org/en/Basic_Operators
+https://www.shellscript.sh/exercises.html
+https://bash.cyberciti.biz/guide/For_loop
+http://www.freeos.com/guides/lsst/
+https://supportweb.cs.bham.ac.uk/docs/tutorials/docsystem/build/tutorials/unixscripting/unixscripting.html
 
 
 
