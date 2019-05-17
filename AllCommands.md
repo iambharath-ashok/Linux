@@ -70,7 +70,7 @@
 
 
 
-##	12 Useful “df” Commands to Check Disk Space in Linux
+##	Useful “df” Commands to Check Disk Space in Linux
 
 -	The “df” command displays the information of 
 	-	device name
@@ -86,7 +86,7 @@
 -	df -m
 
 
-##	10 Useful du (Disk Usage) Commands to Find Disk Usage of Files and Directories
+##	Useful du (Disk Usage) Commands to Find Disk Usage of Files and Directories
 -	“du” (Disk Usage)  used to check the information of disk usage of files and directories on a machine
 -	The du command has many parameter options that can be used to get the results in many formats
 
@@ -97,7 +97,7 @@
 
 
 
-##	35 Practical Examples of Linux Find Command
+##	Practical Examples of Linux Find Command
 
 -	find . -name sample.txt
 -	find /home -name sample.txt
@@ -437,32 +437,7 @@
 -	ps aux | grep mysqld
 		
 
-##	ftp 
 
--	ftp domain.com
--	ftp 192.168.0.1
--	ftp user@ftpdomain.com
--	ftp -nv IPADDRESS or hostname
-
-	-	Login with User and Password
-		
-		user
-		password
-		
-	-	Working with Directories
-		
-		ls
-		cd directory
-		
-		
--	 Downloading files with FTP
-			
-		lcd /home/user/yourdirectoryname
-		get file
-		mget *.xls
-		put file
-		
-		
 		
 ##	How to find IP Address from Hostname
 
@@ -535,6 +510,53 @@
 -	sudo apt-get purge vsftpd : remove completely
 
 
+##	How to find IP Address from Hostname
+
+-	ping hostname
+-	nslookup hostname
+-	grep hostname /etc/hosts
+-	ifconfig -a
+	
+##	Cron Scheduling Task Examples in Linux
+
+-	crontab -l
+-	crontab -e
+-	crontab -r : removing the cron entry
+-	crontab -u epwf1 -l : Listing jobs of particular user 
+-	crontab -i -r : delete the job 
+
+
+##	SCP
+
+-	scp command is used to secure copy 
+-	scp command comes with ssh command
+-	Basic syntax of SCP:
+	
+		scp source_file_name username@destination_host:destination_folder
+
+-	 We can use “-v” parameter to print debug information into the screen		
+
+		scp -v sample.txt username@hostname
+		
+-	Provide modification times, access times, and modes from original files
+
+		scp -p sample.txt username@hostname
+		
+-	Make file transfer faster using -C parameter
+		
+	-	One of parameter that can faster the file transfer is “-C” parameter
+	- 	The “-C” parameter will compress your files on the go	
+	
+		scp -Cpv  sample.txt username@hostname
+		
+-	-	Copy files inside directory recursively
+			
+		-	Sometimes we need to copy directory and all files / directories inside it
+		-	It will be better if we can do it in 1 command
+		-	SCP support that scenario using “-r” parameter
+		
+				scp -r documents mrarianto@202.x.x.x:.
+				
 ##	ftp 
 
 -	ftp domain.com
@@ -560,12 +582,120 @@
 		mget *.xls
 		put file
 		
-		
-		
-##	How to find IP Address from Hostname
+## SFTP
 
--	ping hostname
--	nslookup hostname
--	grep hostname /etc/hosts
--	ifconfig -a
+
+-	sftp is a encrypted version of ftp hence its more secure than ftp
+-	Because all sftp connections are encrypted, they require a username and password (or public key authentication)
+-	sftp performs all operations over an encrypted ssh session
+- 	It uses many of the features of ssh, such as public key authentication and data compression
+
+	-	sftp tecmint@27.48.137.6
+	-	sftp> lpwd
 	
+			Local working directory: /
+	-	sftp> pwd
+	
+			Remote working directory: /tecmint/
+	
+	-	sftp> ls
+	-	sftp> lls
+	
+-	Upload File
+		
+		
+	-	sftp> put local.profile
+	
+		Uploading local.profile to /tecmint/local.profile
+
+-	Upload Mutiple Files
+
+	-	sftp> mput *.xls
+	
+		
+-	Download Files
+	
+	- sftp> get sample.txt
+	
+-	Download multiple files
+
+	-	sftp> mget *.txt
+	
+-	Copying a local directory
+
+		sftp> put -r local_directory
+	
+-	Exit sFTP Shell
+
+	-	sftp> !
+	
+-	 Create Directories
+
+	-	sftp> mkdir testDir
+	-	sftp> lmkdir Documents
+	
+-	Remove Directories
+	
+	-	sftp> rmdir /path/to/remote_dir
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
