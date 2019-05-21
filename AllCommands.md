@@ -569,3 +569,127 @@
 -	grep hostname /etc/hosts
 -	ifconfig -a
 	
+	
+	
+## ssh : secure shell
+
+-	ssh (secure shell) is used to  access the remote hosts in a secured manner
+-	ssh to another host can be authenticated with user/password or x.509 certificates
+-	All the commands that executed will be encrypted 
+
+-	Steps to access Server2 from Server1
+	
+	-	Step 1:
+	
+		-	Login to Server1 as user1.
+
+				cd .ssh
+
+		-	If the directory is there then check if id_rsa.pub file is present or not?
+		-	If the directory Does not exist / id_rsa.pub does not exist then execute the following command
+
+				ssh-keygen -t rsa
+
+		-	Hit enter until you are back to console
+
+
+	-	Step 2: 
+
+		-	Copy the content of id_rsa.pub file
+	
+	-	Step 3:
+	
+		-	Login to Server2 as user2 .
+
+				cd .ssh
+		
+		-	If the directory Does not exist then execute the following command
+			
+				ssh-keygen -t rsa
+			
+		-	Hit enter until you are back to console
+			
+				cd
+				cd .ssh
+
+				touch authorized_keys
+				chmod 600 authorized_keys
+
+		-	Append the content which you have copied from step2 in authorized_keys  file
+			
+				cat >> authorized_keys
+	
+	-	Step 4 :
+			
+		-	Login to server1 as user1
+
+		-	Execute the following command to check ssh-autologin is enabled for user2@server2  from user1@server1
+
+			ssh user2@server2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
