@@ -33,20 +33,20 @@
 
 ##	 ‘dir’ Command with Different Options and Arguments in Linux
 
--	# dir [OPTION] [FILE]
--	# dir /
--	# dir /etc
--	# dir
--	# dir -1 : To list one file per line use -1 option as follows.
--	# dir -a : all files including hidden files
--	# dir -al : hidden files with listing
--	# dir -d /etc : Directory contnets
--	# dir -dl /etc
--	# dir -il : inode number 
--	# dir -shl : size hunam format
--	# dir -ashlS /home/kone : all size human long list Size
--	# dir -ashlt /home/kone
--	# dir -R
+-	dir [OPTION] [FILE]
+-	dir /
+-	dir /etc
+-	dir
+-	dir -1 : To list one file per line use -1 option as follows.
+-	dir -a : all files including hidden files
+-	dir -al : hidden files with listing
+-	dir -d /etc : Directory contnets
+-	dir -dl /etc
+-	dir -il : inode number 
+-	dir -shl : size hunam format
+-	dir -ashlS /home/kone : all size human long list Size
+-	dir -ashlt /home/kone
+-	dir -R
 	
 ##	Examples of Linux “Touch” Command
 
@@ -569,6 +569,61 @@
 -	grep hostname /etc/hosts
 -	ifconfig -a
 	
+## SFTP
+
+
+-	sftp is a encrypted version of ftp hence its more secure than ftp
+-	Because all sftp connections are encrypted, they require a username and password (or public key authentication)
+-	sftp performs all operations over an encrypted ssh session
+- 	It uses many of the features of ssh, such as public key authentication and data compression
+
+	-	sftp tecmint@27.48.137.6
+	-	sftp> lpwd
+	
+			Local working directory: /
+	-	sftp> pwd
+	
+			Remote working directory: /tecmint/
+	
+	-	sftp> ls
+	-	sftp> lls
+	
+-	Upload File
+		
+		
+	-	sftp> put local.profile
+	
+		Uploading local.profile to /tecmint/local.profile
+
+-	Upload Mutiple Files
+
+	-	sftp> mput *.xls
+	
+		
+-	Download Files
+	
+	- sftp> get sample.txt
+	
+-	Download multiple files
+
+	-	sftp> mget *.txt
+	
+-	Copying a local directory
+
+		sftp> put -r local_directory
+	
+-	Exit sFTP Shell
+
+	-	sftp> !
+	
+-	 Create Directories
+
+	-	sftp> mkdir testDir
+	-	sftp> lmkdir Documents
+	
+-	Remove Directories
+	
+	-	sftp> rmdir /path/to/remote_dir
 	
 	
 ## ssh : secure shell
