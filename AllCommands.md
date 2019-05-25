@@ -683,15 +683,192 @@
 			ssh user2@server2
 
 
+## diff Comamnds
+
+-	diff command stands for difference
+-	It's used to find the difference b/w the multiple difference files by comparing line by line
+-	Unlike cmp and comm, it tells us which lines in one file have is to be changed to make the two files identical
+
+		$ ls
+		a.txt  b.txt
+
+		$ cat a.txt
+		Gujarat
+		Uttar Pradesh
+		Kolkata
+		Bihar
+		Jammu and Kashmir
+
+		$ cat b.txt
+		Tamil Nadu
+		Gujarat
+		Andhra Pradesh
+		Bihar
+		Uttar pradesh
+		
+		$ diff a.txt b.txt
+		0a1
+		> Tamil Nadu
+		2,3c3
+		< Uttar Pradesh
+		 Andhra Pradesh
+		5c5
+		 Uttar pradesh
 
 
 
 
+##	comm 
+
+-	This command is used to compare two sorted files.
+-	Syntax: comm [options] file1 file2
+-	One set of options allows selection of ‘columns’ to suppress
+
+		-1: suppress lines unique to file1 (column 1)
+		-2: suppress lines unique to file2 (column 2)
+		-3: suppress lines common to file1 and file2 (column3)
+
+-	Example: Only show column-3 that contains lines common between file1 and file2
+		
+		$ comm -12 file1 file2
+
+		
+## cmp 
+
+-	This command is used to compare two files character by character.
+-	Syntax: cmp [options] file1 file2
 
 
+##	Cut Command
+
+-	The cut command in UNIX is a command for cutting out the sections from each line of files and writing the result to standard output
+-	It can be used to cut parts of a line by byte position, character and field
+-	It is necessary to specify option with command otherwise it gives error
+	
+	-	 -b(byte)
+	
+		$ cut -b 1,2,3 state.txt
+		$ cut -b 1- state.txt
+		$ cut -b 1-3,5-7 state.txt
+		$ cut -b 1- state.txt
+		$ cut -b -3 state.txt
+
+	-	-c(column)	
+	
+		$ cut -c 2,5,7 state.txt
+		$ cut -c 1-7 state.txt
+		$ cut -c 1- state.txt
+		$ cut -c -5 state.txt
+	
+	-	-f (field): 
+		
+		$ cut -d "delimiter" -f (field number) file.txt
+		$ cut -f 1 state.txt
+		$ cut -d " " -f 1 state.txt
+		$ cut -d " " -f 1-4 state.txt
+		$ cat devlpers | cut -d ":" -f1,2-3
+		$ cut -d " " -f 1,2 state.txt --output-delimiter='%'
+		$ cut --complement -c 5 state.txt
+		
+	
+		
+
+## 	paste Command
+
+-	It is used to join files horizontally (parallel merging) by outputting lines consisting of lines from each file specified
+-	separated by tab as delimiter, to the standard output
+-	When no file is specified, or put dash (“-“) instead of file name, paste reads from standard input and gives output as it is until a interrupt command [Ctrl-c] is given
+
+-	Syntax: paste [OPTION]... [FILES]...
+	
+		$ cat state
+		
+			Arunachal Pradesh
+			Assam
+			Andhra Pradesh
+			Bihar
+			Chhattisgrah
+
+		$ cat capital
+		
+			Itanagar
+			Dispur
+			Hyderabad
+			Patna
+			Raipur
+
+		$ paste number state capital
+		
+			1       Arunachal Pradesh       Itanagar
+			2       Assam   Dispur
+			3       Andhra Pradesh  Hyderabad
+			4       Bihar   Patna
+			5       Chhattisgrah    Raipur
 
 
+	-	$ paste -d "|" number state capital
+	
+			1|Arunachal Pradesh|Itanagar
+			2|Assam|Dispur
+			3|Andhra Pradesh|Hyderabad
+			4|Bihar|Patna
+			5|Chhattisgrah|Raipur
+		
+	-	$ paste -d "|," number state capital
+	
+			1|Arunachal Pradesh,Itanagar
+			2|Assam,Dispur
+			3|Andhra Pradesh,Hyderabad
+			4|Bihar,Patna
+			5|Chhattisgrah,Raipur
+		
+	-	-s (serial)
+	
+			-	$ paste -s number state capital
+			
+				1       2       3       4       5
+				Arunachal Pradesh       Assam   Andhra Pradesh  Bihar   Chhattisgrah
+				Itanagar        Dispur  Hyderabad       Patna   Raipur
+				
+			-	$ paste -s -d ":" number state capital
+					
+					1:2:3:4:5
+					Arunachal Pradesh:Assam:Andhra Pradesh:Bihar:Chhattisgrah
+					Itanagar:Dispur:Hyderabad:Patna:Raipur
+	
+## 	Tr Command
 
+-	The tr command in UNIX is a command line utility for translating or deleting characters
+- 	It supports a range of transformations including uppercase to lowercase, squeezing repeating characters, deleting specific characters and basic find and replace
+-	It can be used with UNIX pipes to support more complex translation
+- 	tr stands for translate
+
+	-	$ tr [OPTION] SET1 [SET2]
+		
+	-	$cat greekfile
+	
+			WELCOME TO 
+			GeeksforGeeks
+			
+	-	$cat greekfile | tr “[a-z]” “[A-Z]”
+	-	$cat geekfile | tr “[:lower:]” “[:upper:]”
+	-	$ echo "Welcome To GeeksforGeeks" | tr [:space:] '\t'
+	-	$ tr '{}' '()'   newfile.txt
+	
+-	squeeze repetition of characters using -s
+
+	-	$ echo "Welcome    To    GeeksforGeeks" | tr -s [:space:] ' '
+	
+-	delete specified characters using -d option
+
+	-	$ echo "Welcome To GeeksforGeeks" | tr -d 'w'
+	-	$ echo "my ID is 73535" | tr -d [:digit:]
+
+	
+	
+
+
+	
 
 
 
