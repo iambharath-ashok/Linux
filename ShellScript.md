@@ -169,24 +169,165 @@ comparison | Evaluated to true When
 
 ##	Loops
 
--	Syntax
-	
-	
-	for arg in [list]
-	do 
-		commands
-	done
-	
+-	For Loops
 
--	Exmaple 1
+	-	for loops iterate through a set of values until the list is exhausted:
 
+	-	Syntax
 
-	names = (Joe Jony Sara Jenny);
-	for N in ${names[@]}; do
-	
-	
+		for arg in [list]
+		do 
+			commands
+		done
+		
+	-	Exmaple 1
 
 
+		names = (Joe Jony Sara Jenny);
+		for N in ${names[@]}; 
+		do
+			echo "Looping Names: $N"
+			
+		done
+		
+	-	Example 2
+
+			#!/bin/sh
+			for i in 1 2 3 4 5
+			do
+			  echo "Looping ... number $i"
+			done	
+		
+			for i in hello 1 * 2 goodbye 
+			do
+			  echo "Looping ... i is set to $i"
+			done
+		
+	-	Example Set 3
+
+		#!/bin/bash
+		echo "Bash version ${BASH_VERSION}..."
+		for i in {0..10..2}
+		  do 
+			 echo "Welcome $i times"
+		 done
+		 
+		 #!/bin/bash
+		for i in {1..5}
+		do
+		   echo "Welcome $i times"
+		done
+		
+		for (( EXP1; EXP2; EXP3 ))
+		do
+			command1
+			command2
+			command3
+		done
+		
+		#!/bin/bash
+		for (( c=1; c<=5; c++ ))
+		do  
+		   echo "Welcome $c times"
+		done
+		
+		#!/bin/bash
+		for (( ; ; ))
+		do
+		   echo "infinite loops [ hit CTRL+C to stop]"
+		done
+		
+		for I in 1 2 3 4 5
+		do
+		  statements1      #Executed for all values of ''I'', up to a disaster-condition if any.
+		  statements2
+		  if (disaster-condition);
+		  then
+			break       	   #Abandon the loop.
+		  fi
+		  statements3          #While good and, no disaster-condition.
+		done
+		
+-	While Loops
+
+	-	Example 1:
+	
+			#!/bin/sh
+			INPUT_STRING=hello
+			while [ "$INPUT_STRING" != "bye" ]
+			do
+			  echo "Please type something in (bye to quit)"
+			  read INPUT_STRING
+			  echo "You typed: $INPUT_STRING"
+			done
+			
+			#!/bin/sh
+			while :
+			do
+			  echo "Please type something in (^C to quit)"
+			  read INPUT_STRING
+			  echo "You typed: $INPUT_STRING"
+			done
+		
+		
+
+## Shell Functions
+
+
+-	Shell functions can be defined with function keyword or just by name
+-	Function can be invoked simply by calling function name by passing the params
+	
+	
+	-	Syntax:
+	
+		function_name () {
+			<commands>
+		}
+		
+		
+		function function_name {
+			<commands>
+		}
+		
+-	Examples:
+
+		#!/bin/bash
+		# Basic function
+		print_something () {
+		echo Hello I am a function
+		}
+		print_something
+		print_something
+	
+
+-	Passing Arguments
+		
+		#!/bin/bash
+		# Passing arguments to a function
+		print_something () {
+		echo Hello $1
+		}
+		print_something Mars
+		print_something Jupiter
+		
+		
+		#!/bin/bash
+		# Setting a return status for a function
+		print_something () {
+		echo Hello $1
+		return 5
+		}
+		print_something Mars
+		print_something Jupiter
+		echo The previous function has a return value of $?
+		
+		#!/bin/bash
+		# Setting a return value to a function
+		lines_in_file () {
+		cat $1 | wc -l
+		}
+		num_lines=$( lines_in_file $1 )
+		echo The file $1 has $num_lines lines in it.
 
 
 
