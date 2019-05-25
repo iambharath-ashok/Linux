@@ -62,43 +62,129 @@
 	# array=(value1 value2 ... valueN)
 	array=(23 45 34 1 2 3)
 	#To refer to a particular value (e.g. : to refer 3rd value)
-	echo ${array[2]}  34
+	echo ${array[2]}  : output 34
 
 	#To refer to all the array values
-	echo ${array[@]} 23 45 34 1 2 3
+	echo ${array[@]} : display all the elements 23 45 34 1 2 3
 
 	#To evaluate the number of elements in an array
 	echo ${#array[@]} 6
 	
 
-##	Basic Operators
+##	Decision Making
+
+- Syntax
+
+	if [ condition ];
+	then 
+		commands 
+	fi
 	
+	
+-	Example 1 : Basic If
+
+		Name = "Bharath"
+		if	[ "$Name" = "Bharath" ];
+		then
+			echo "True My Name is indeed $Name"
+		fi
+		
+-	Example 2 : else
+
+		Name = "Bill"
+		if [ "$name" = "John" ];
+		then
+			echo "My name is indeed John";
+		else
+			echo "My name is indeed $Name";
+		fi
+		
+-	Example 3 : if else 
+
+		Name = "Bharath";
+		if [ "$Name" = "Bill" ];
+		then 
+			echo "My name is indeed Bill";
+		elif ["$Name" = "John" ];
+		then
+			echo "My name is indeed: $Name";
+		else 
+			echo "My is name is nothing";
+		fi 	
 			
 
+##	Types of numeric comparisons
+
+comparison  |  Evaluated to true when
+------------|-------------------------
+$a -lt $b   | $a < $b
+$a -gt $b   | $a > $b
+$a -le $b   | $a <= $b
+$a -ge $b   | $a >= $b
+$a -eq $b   | $a is equal to $b
+$a -ne $b   | $a is not equal to $b
+			
+			
+##	Types of string comparisons
 
 
+comparison | Evaluated to true When
+-----------|-----------------------
+"$a" = "$b"    | $a is the same as $b
+"$a" == "$b"   | $a is the same as $b
+"$a" != "$b"   | $a is different from $b
+-z "$a"        | $a is empty
+
+##	case structure
 
 
+-	Syntax
+
+	case "$variable" in
+		
+		"$condition1")
+			commands ...
+		;;
+		
+		"$condition2")
+			commands ...
+		;;
+		
+		"$condition3")
+			commands ...
+		;;
+	esac
+	
+
+-	simple case bash structure
+
+		mycase=1
+		case $mycase in
+			1) echo "You selected bash";;
+			2) echo "You selected perl";;
+			3) echo "You selected phyton";;
+			4) echo "You selected c++";;
+			5) exit
+		esac
+
+##	Loops
+
+-	Syntax
+	
+	
+	for arg in [list]
+	do 
+		commands
+	done
+	
+
+-	Exmaple 1
 
 
-
-
-
-
-
-https://www.learnshell.org/en/Basic_Operators
-https://www.shellscript.sh/exercises.html
-https://bash.cyberciti.biz/guide/For_loop
-http://www.freeos.com/guides/lsst/
-https://supportweb.cs.bham.ac.uk/docs/tutorials/docsystem/build/tutorials/unixscripting/unixscripting.html
-
-
-
-
-
-
-
-
+	names = (Joe Jony Sara Jenny);
+	for N in ${names[@]}; do
+	
+	
 
 
 
